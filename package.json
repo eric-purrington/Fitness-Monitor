@@ -1,7 +1,7 @@
 {
-  "name": "mongoose_skeleton",
+  "name": "fitness-monitore",
   "version": "1.0.0",
-  "description": "",
+  "description": "An application to track your workouts using nosql",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "watch": "nodemon server.js",
     "seed": "node seeders/seed.js"
   },
-  "author": "",
+  "author": "Eric Purrington",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
