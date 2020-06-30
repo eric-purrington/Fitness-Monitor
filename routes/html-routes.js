@@ -1,6 +1,9 @@
+const db = require("../models");
+
 "/"
 "/stats"
-
+"/exercise?"
+"/exercise"
 
 var path = require("path");
 
