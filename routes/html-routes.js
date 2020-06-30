@@ -5,13 +5,11 @@ const db = require("../models");
 "/exercise?"
 "/exercise"
 
-var path = require("path");
-
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    db.Note.find({})
-      .then(dbNote => {
-        res.json(dbNote);
+    db.Workout.find({})
+      .then(dbWorkout => {
+        res.json(dbWorkout);
       })
       .catch(err => {
         res.json(err);
@@ -19,9 +17,9 @@ module.exports = function(app) {
   });
   
   app.get("/stats", (req, res) => {
-    db.User.find({})
-      .then(dbUser => {
-        res.json(dbUser);
+    db.Workout.find({})
+      .then(dbWorkout => {
+        res.json(dbWorkout);
       })
       .catch(err => {
         res.json(err);
@@ -29,21 +27,20 @@ module.exports = function(app) {
   });
   
   app.post("/exercise", ({ body }, res) => {
-    db.Note.create(body)
-      .then(({ _id }) => db.User.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
-      .then(dbUser => {
-        res.json(dbUser);
+    db.Workout.create(body)
+      .then(({ _id }) => db.Workout.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
+      .then(dbWorkout => {
+        res.json(dbWorkout);
       })
       .catch(err => {
         res.json(err);
       });
   });
   
-  app.get("/populateduser", (req, res) => {
-    db.User.find({})
-      .populate("notes")
-      .then(dbUser => {
-        res.json(dbUser);
+  app.get("/exercise?", (req, res) => {
+    db.Workout.find({})
+      .then(dbWorkout => {
+        res.json(dbWorkout);
       })
       .catch(err => {
         res.json(err);
