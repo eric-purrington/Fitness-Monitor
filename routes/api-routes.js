@@ -1,8 +1,14 @@
 const router = require("express").Router();
-const Workout = require("../models/workout.js");
+const db = require("./models");
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/workout", {
+    useNewUrlParser: true,
+    useFindAndModify: false
+});
 
 router.post("/api/workouts", ({ body }, res) => {
-    Workout.create(body).then(dbWorkout => {
+    db.Workout.create(body).then(dbWorkout => {
         res.json(dbWorkout);
     }).catch(err => {
         res.status(400).json(err);
@@ -10,7 +16,7 @@ router.post("/api/workouts", ({ body }, res) => {
 });
 
 router.get("/api/workouts", (req, res) => {
-    Workout.find({}).then(dbWorkout => {
+    db.Workout.find().sort({ day: -1 }).limit(1).then(dbWorkout => {
         res.json(dbWorkout);
     }).catch(err => {
         res.status(400).json(err);
@@ -18,40 +24,20 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.put("/api/workouts/:id", (req, res) => {
-    Workout.
+    db.Workout.findOneAndUpdate({ _id: req.params.id }, { $push: { exercises: req.body } }, { new: true }).then(dbWorkout => {
+      res.json(dbWorkout);
+    })
+    .catch(err => {
+      res.json(err);
+    });
 });
+
 router.get("/api/workouts/range", (req, res) => {
-    Workout.
+    db.Workout.find({}).then(dbWorkout => {
+        res.json(dbWorkout);
+    }).catch(err => {
+        res.status(400).json(err);
+    });
 });
-// router.post("/api/transaction", ({ body }, res) => {
-//   Transaction.create(body)
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
-
-// router.post("/api/transaction/bulk", ({ body }, res) => {
-//   Transaction.insertMany(body)
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
-
-// router.get("/api/transaction", (req, res) => {
-//   Transaction.find({})
-//     .sort({ date: -1 })
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
 
 module.exports = router;

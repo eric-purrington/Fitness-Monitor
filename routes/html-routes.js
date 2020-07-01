@@ -1,51 +1,19 @@
-const db = require("../models");
+const path = require("path");
+const router = require("express").Router();
 
-"/"
-"/stats"
-"/exercise?"
-"/exercise"
 
-module.exports = function(app) {
-  app.get("/", (req, res) => {
-    db.Workout.find({})
-      .then(dbWorkout => {
-        res.json(dbWorkout);
-      })
-      .catch(err => {
-        res.json(err);
-      });
-  });
-  
-  app.get("/stats", (req, res) => {
-    db.Workout.find({})
-      .then(dbWorkout => {
-        res.json(dbWorkout);
-      })
-      .catch(err => {
-        res.json(err);
-      });
-  });
-  
-  app.post("/exercise", ({ body }, res) => {
-    db.Workout.create(body)
-      .then(({ _id }) => db.Workout.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
-      .then(dbWorkout => {
-        res.json(dbWorkout);
-      })
-      .catch(err => {
-        res.json(err);
-      });
-  });
-  
-  app.get("/exercise?", (req, res) => {
-    db.Workout.find({})
-      .then(dbWorkout => {
-        res.json(dbWorkout);
-      })
-      .catch(err => {
-        res.json(err);
-      });
-  });
+router.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
+});
 
-};
+router.get("/stats", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/stats.html"));
+});
+
+router.get("/exercise", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/exercise.html"));
+});
+
+
+module.exports = router;
 
