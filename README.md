@@ -1,8 +1,9 @@
 # Fitness-Monitor
-A workout tracker built with NoSQL (mongoose)
 
 
-![Gif Demonstration](/public/img/)
+![Gif Demonstration](/public/img/Demo.gif)
+
+Try out the [deployed app]() for yourself!
 
 ## Table of Contents 
 
@@ -14,14 +15,14 @@ A workout tracker built with NoSQL (mongoose)
 
 * [Technologies](#technologies)
 
-* [Languages/Libraries/Frameworks](#languages/libraries/frameworks)
+* [Languages/Libraries](#languages/libraries)
 
 * [Questions](#questions)
 
 
 ## Description
 
-This application allows a user to track burgers they have eaten and/or would like to eat.
+A workout tracker built with NoSQL (mongoose). Tracks previous workouts and displays various stats on those workouts. 
 
 ## Installation
 
@@ -34,23 +35,24 @@ Be sure to have mongoDB to create/host the database.
 
 ## Usage
 
-Go to the [Burger-Eater](https://ep-burger-eater.herokuapp.com/) to see for yourself.
+This application allows a user to track their workouts in a week. The user can add exercises to previous workouts or start new ones. The application outlines various stats about the user's last workout on the homepage. The dashboard holds a couple of graphs that outlines the user's previous workouts.
     
 
 ## Technologies
                            
 - [Node.js](https://nodejs.org/)
-- [MongoDB]()
-- [Mongoose]()
-- [Morgan]()
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [Morgan](https://www.npmjs.com/package/morgan)
 - [Express](https://expressjs.com/)
 - [fontawesome](https://fontawesome.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Semantic-ui](https://semantic-ui.com/)
 
 
-## Languages/Libraries/Frameworks
+## Languages/Libraries
 
 - JavaScript
-- MongoDB
 - HTML
 - CSS
 - JQuery
