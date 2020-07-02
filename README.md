@@ -3,7 +3,7 @@
 
 ![Gif Demonstration](/public/img/Demo.gif)
 
-Try out the [deployed app]() for yourself!
+Try out the [deployed app](https://ep-fitness-monitor.herokuapp.com/) for yourself!
 
 ## Table of Contents 
 
