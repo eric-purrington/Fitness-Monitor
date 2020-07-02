@@ -16,13 +16,22 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-nav {
-  background-color: #5793fd;
-  color: #ffffff;
+nav, .pointing {
+  background-color: #5793fd !important;
+  color: #ffffff !important;
   height: 80px;
   padding: 10px;
-  line-height: 3;
-  font-size: 1.2rem;
+  line-height: 3 ;
+  font-size: 1.2rem !important;
+}
+
+.active {
+  background-color: #5793fd !important;
+}
+
+.fa-2x {
+  color: #ffffff;
+  margin: 15px;
 }
 
 a,

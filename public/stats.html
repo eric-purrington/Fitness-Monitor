@@ -4,19 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="./stylesheets/style.css" />
     <title>Fitness Chart</title>
   </head>
-  <nav>
-    <a href="/">Fitness Tracker</a>
-  </nav>
   <body>
+    <div class="ui pointing menu">
+      <a class="item" href="/">
+        Fitness Tracker
+      </a>
+      <a class="active item" href="/stats">
+        Dashboard
+      </a>
+      <div class="right menu">
+        <i class="fas fa-running fa-2x"></i>
+        <i class="fas fa-heartbeat fa-2x"></i>
+        <i class="fas fa-dumbbell fa-2x"></i>
+      </div>
+    </div>
     <div class="container mt">
       <h1 class="text-center">Workout Dashboard</h1>
       <div class="row mt">
