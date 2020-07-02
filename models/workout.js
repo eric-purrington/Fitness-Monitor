@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// Set up table, doesn't need every field
 const workoutSchema = new Schema({
   day: {
     type: Date,
     default: Date.now
   },
+  // exercises will fill this array
   exercises: [
     {
       type: {
@@ -24,6 +26,7 @@ const workoutSchema = new Schema({
   ]
 });
 
+// Setting up for export
 const Workout = mongoose.model("Workout", workoutSchema);
 
 module.exports = Workout;

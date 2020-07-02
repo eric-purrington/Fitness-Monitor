@@ -19,7 +19,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-// update workout with exercise
+// Update workout with exercise
 router.put("/api/workouts/:id", (req, res) => {
     db.Workout.updateOne({ _id: req.params.id }, { $push: { exercises: req.body } },{ new: true, upsert: true}).then(dbWorkout => {
       res.json(dbWorkout);
